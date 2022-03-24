@@ -1,0 +1,5 @@
+{
+  "fileTypes": ["js", "ts", "html"],
+  "ignoredFolders": ["node_modules", ".git", ".idea", "dist"],
+  "ignoredFiles": [".model.js"]
+}
