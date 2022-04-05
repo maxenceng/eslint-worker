@@ -1,8 +1,12 @@
 {
   "name": "eslint-worker",
-  "version": "1.0.0",
-  "main": "jest-worker.js",
+  "version": "0.0.1",
   "license": "MIT",
+  "main": "dist/cli.js",
+  "author": {
+    "email": "maxence.grosjean@cpe.fr",
+    "name": "maxenceng"
+  },
   "scripts": {
     "start:dev": "babel-node src/cli.js",
     "start:prod": "node dist/cli.js",
