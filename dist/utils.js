@@ -5,7 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.omitUnused = exports.getEslintOptions = exports.getCliOptions = exports.findConfig = exports.buildOptionsFromArgs = void 0;
+exports.omitUnusedByESLint = exports.omitUnused = exports.getEslintOptions = exports.getCliOptions = exports.findConfig = exports.buildOptionsFromArgs = void 0;
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
@@ -42,6 +42,12 @@ var omitUnused = function omitUnused(argv) {
 
 exports.omitUnused = omitUnused;
 
+var omitUnusedByESLint = function omitUnusedByESLint(argv) {
+  return (0, _lodash.omit)(argv, ['$0', 'verbose']);
+};
+
+exports.omitUnusedByESLint = omitUnusedByESLint;
+
 var findConfig = function findConfig() {
   var file = resolveFile();
 
@@ -73,7 +79,7 @@ var buildOptionsFromArgs = function buildOptionsFromArgs(argv) {
 exports.buildOptionsFromArgs = buildOptionsFromArgs;
 
 var getEslintOptions = function getEslintOptions(argv) {
-  return _eslintOptions["default"].parse(omitUnused(argv));
+  return _eslintOptions["default"].parse(omitUnusedByESLint(argv));
 };
 
 exports.getEslintOptions = getEslintOptions;
