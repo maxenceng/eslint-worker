@@ -57,6 +57,7 @@ export default async (argv) => {
   const filesFinder = new FilesFinder(workerOptions)
   const filesForEachWorker = await filesFinder.findFilesWithNumberOfWorkers()
   const worker = new Worker(path.join(__dirname, './lintWorker'), {
+    enableWorkerThreads: workerOptions.enableThreads ?? true,
     numWorkers: workerOptions.workers,
   })
 

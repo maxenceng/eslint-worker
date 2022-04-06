@@ -1,8 +1,7 @@
-import { ESLint } from 'eslint'
-import translateOptions from './engineOptions'
+const { ESLint } = require('eslint')
+const translateOptions = require('./engineOptions')
 
-/* eslint-disable import/prefer-default-export */
-export const lint = async (options, files) => {
+const lint = async (options, files) => {
   const engine = new ESLint(translateOptions(options))
 
   const results = await engine.lintFiles(files)
@@ -13,3 +12,5 @@ export const lint = async (options, files) => {
 
   return results
 }
+
+module.exports = { lint }

@@ -62,6 +62,8 @@ var handleErrors = function handleErrors(results, options) {
 
 var _default = /*#__PURE__*/function () {
   var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(argv) {
+    var _workerOptions$enable;
+
     var workerOptions, eslintOptions, engine, fileConfig, formatter, filesFinder, filesForEachWorker, worker, results, flatResults, resultsToPrint, formattedResults;
     return _regenerator["default"].wrap(function _callee$(_context) {
       while (1) {
@@ -110,6 +112,7 @@ var _default = /*#__PURE__*/function () {
           case 19:
             filesForEachWorker = _context.sent;
             worker = new _jestWorker.Worker(_path["default"].join(__dirname, './lintWorker'), {
+              enableWorkerThreads: (_workerOptions$enable = workerOptions.enableThreads) !== null && _workerOptions$enable !== void 0 ? _workerOptions$enable : true,
               numWorkers: workerOptions.workers
             });
             _context.prev = 21;

@@ -6,7 +6,7 @@ const quietFixPredicate = (message) => message.severity === 2
  * @returns {ESLintOptions} The options object for the CLIEngine.
  * @private
  */
-export default ({
+module.exports = ({
   cache,
   cacheFile,
   cacheLocation,

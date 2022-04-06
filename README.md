@@ -17,11 +17,13 @@ A sample `.eslintworkerrc` file:
 
 Options:
 
-|         Name         |       Type        | Description                                                                                                 |
-|:--------------------:| :---------------: |:------------------------------------------------------------------------------------------------------------|
-|   **`fileTypes`**    | `{Array<String>}` | Glob-style paths for file types to include when linting                                                     |
-| **`ignoredFolders`** | `{Array<String>}` | Glob-style paths to ignore                                                                                  |
-|  **`ignoredFiles`**  | `{Array<String>}` | Glob-style files to ignore                                                                                  |
+|         Name         |       Type        | Description                                                                         |
+|:--------------------:|:-----------------:|:------------------------------------------------------------------------------------|
+|    **`folders`**     | `{Array<String>}` | Glob-style paths for paths to include when linting (default: ["."])                 |
+|   **`fileTypes`**    | `{Array<String>}` | Glob-style paths for file types to include when linting (default: every file types) |
+| **`ignoredFolders`** | `{Array<String>}` | Glob-style paths to ignore (default: [])                                            |
+|  **`ignoredFiles`**  | `{Array<String>}` | Glob-style files to ignore (default: [])                                            |
+| **`enableThreads`**  |    `{Boolean}`    | Choose whether you want to enable jest-worker threads or not (default: true)        |
 
 ## Usage
 

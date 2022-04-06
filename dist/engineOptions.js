@@ -2,11 +2,6 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
@@ -24,7 +19,7 @@ var quietFixPredicate = function quietFixPredicate(message) {
  */
 
 
-var _default = function _default(_ref) {
+module.exports = function (_ref) {
   var cache = _ref.cache,
       cacheFile = _ref.cacheFile,
       cacheLocation = _ref.cacheLocation,
@@ -85,5 +80,3 @@ var _default = function _default(_ref) {
     useEslintrc: eslintrc
   };
 };
-
-exports["default"] = _default;
