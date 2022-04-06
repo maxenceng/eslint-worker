@@ -62,8 +62,18 @@ export default async (argv) => {
   })
 
   try {
+    const isVerboseMode = workerOptions?.verbose ?? false
     const results = await Promise.all(
-      filesForEachWorker.map((filesForWorker) => worker.lint(eslintOptions, filesForWorker)),
+      filesForEachWorker.map(async (filesForWorker, idx) => {
+        if (isVerboseMode) {
+          console.debug(`worker ${idx} is linting listed files : `, filesForWorker)
+        }
+        const resultForCurrentWorker = await worker.lint(eslintOptions, filesForWorker)
+        if (isVerboseMode && resultForCurrentWorker) {
+          console.debug(`worker ${idx} finished linting`)
+        }
+        return resultForCurrentWorker
+      }),
     )
     const flatResults = flattenDeep(results)
 

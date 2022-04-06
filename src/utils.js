@@ -14,6 +14,8 @@ const parseConfig = (file) => JSON.parse(file)
 // Omit values in args that are of no use here
 export const omitUnused = (argv) => omit(argv, ['$0'])
 
+export const omitUnusedByESLint = (argv) => omit(argv, ['$0', 'verbose'])
+
 export const findConfig = () => {
   const file = resolveFile()
   if (fs.existsSync(file)) {
@@ -36,7 +38,7 @@ export const buildOptionsFromArgs = (argv) => {
   return options
 }
 
-export const getEslintOptions = (argv) => eslintOptions.parse(omitUnused(argv))
+export const getEslintOptions = (argv) => eslintOptions.parse(omitUnusedByESLint(argv))
 
 export const getCliOptions = (argv) => {
   const config = findConfig()

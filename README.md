@@ -52,3 +52,11 @@ To use the ESLint auto fix feature, add `--fix` when starting the server
 ```
 eslint-worker --fix
 ```
+
+### Verbose
+
+Displays which files each worker lints and when they have finished their job. Use the `--verbose` flag as such
+
+```
+eslint-worker --verbose
+```
