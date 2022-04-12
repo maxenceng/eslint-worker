@@ -5,6 +5,7 @@ import { flattenDeep } from 'lodash'
 import FilesFinder from './filesFinder'
 import translateOptions from './engineOptions'
 import { getCliOptions, getEslintOptions } from './utils'
+import createOutputFile from './createOutputFile'
 
 /* eslint-disable no-console */
 const countErrors = (results) => results.reduce((acc, result) => ({
@@ -83,7 +84,11 @@ export default async (argv) => {
       resultsToPrint = ESLint.getErrorResults(flatResults)
     }
     const formattedResults = formatter.format(resultsToPrint)
-    console.log(formattedResults)
+    if (eslintOptions.outputFile) {
+      await createOutputFile(eslintOptions.outputFile, formattedResults)
+    } else {
+      console.log(formattedResults)
+    }
     return handleErrors(flatResults, eslintOptions)
   } catch (e) {
     console.error(e)

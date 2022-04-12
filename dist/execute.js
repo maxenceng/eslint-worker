@@ -25,6 +25,8 @@ var _engineOptions = _interopRequireDefault(require("./engineOptions"));
 
 var _utils = require("./utils");
 
+var _createOutputFile = _interopRequireDefault(require("./createOutputFile"));
+
 /* eslint-disable no-console */
 var countErrors = function countErrors(results) {
   return results.reduce(function (acc, result) {
@@ -166,21 +168,37 @@ var _default = /*#__PURE__*/function () {
             }
 
             formattedResults = formatter.format(resultsToPrint);
+
+            if (!eslintOptions.outputFile) {
+              _context2.next = 35;
+              break;
+            }
+
+            _context2.next = 33;
+            return (0, _createOutputFile["default"])(eslintOptions.outputFile, formattedResults);
+
+          case 33:
+            _context2.next = 36;
+            break;
+
+          case 35:
             console.log(formattedResults);
+
+          case 36:
             return _context2.abrupt("return", handleErrors(flatResults, eslintOptions));
 
-          case 34:
-            _context2.prev = 34;
+          case 39:
+            _context2.prev = 39;
             _context2.t0 = _context2["catch"](21);
             console.error(_context2.t0);
             return _context2.abrupt("return", 2);
 
-          case 38:
+          case 43:
           case "end":
             return _context2.stop();
         }
       }
-    }, _callee2, null, [[21, 34]]);
+    }, _callee2, null, [[21, 39]]);
   }));
 
   return function (_x) {
