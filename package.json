@@ -7,6 +7,14 @@
     "email": "maxence.grosjean@cpe.fr",
     "name": "maxenceng"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxenceng/eslint-worker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxenceng/eslint-worker/issues"
+  },
+  "homepage": "https://github.com/maxenceng/eslint-worker",
   "bin": {
     "eslint-worker": "./dist/cli.js"
   },
